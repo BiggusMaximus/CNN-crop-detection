@@ -2,9 +2,10 @@ import sys  # to access the system
 import cv2
 img = cv2.imread("NLB.jpg", cv2.IMREAD_ANYCOLOR)
 
-while True:
-    cv2.imshow("./NLB.JPG", img)
+if img is not None and img.shape[0] > 0 and img.shape[1] > 0:
+    cv2.imshow('Image', img)
     cv2.waitKey(0)
-    sys.exit()  # to exit from all the processes
+    cv2.destroyAllWindows()
+else:
+    print('Image not found or has invalid dimensions')
 
-cv2.destroyAllWindows()  # destroy all windows
