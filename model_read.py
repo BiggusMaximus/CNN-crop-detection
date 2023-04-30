@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import PIL.Image as Image
+import cv2
 
 # Load the TFLite model and allocate tensors.
 interpreter = tf.lite.Interpreter(model_path="Salinan DLmodel.tflite")
@@ -12,7 +13,10 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Load and preprocess input image.
-image = Image.open("NLB.jpg").resize((256, 256))
+# image = Image.open("NLB.jpg").resize((256, 256))
+image = cv2.imread("NLB.jpg")
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+image = cv2.resize(image, (256, 256), interpolation=cv2.INTER_AREA)
 input_data = np.array(image, dtype=np.float32)
 # input_data = (input_data - 127.5) / 127.5  # Normalize to [-1, 1]
 input_data = np.expand_dims(input_data, axis=0)
