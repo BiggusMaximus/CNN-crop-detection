@@ -3,7 +3,7 @@ import cv2
 img = cv2.imread("NLB.jpg", cv2.IMREAD_ANYCOLOR)
 
 while True:
-    cv2.imshow("image", img)
+    cv2.imshow("./NLB.JPG", img)
     cv2.waitKey(0)
     sys.exit()  # to exit from all the processes
 
