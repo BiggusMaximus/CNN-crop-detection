@@ -14,7 +14,7 @@ output_details = interpreter.get_output_details()
 
 # Load and preprocess input image.
 # image = Image.open("NLB.jpg").resize((256, 256))
-image = cv2.imread("NLB.jpg")
+image = cv2.imread("NLB.JPG")
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 image = cv2.resize(image, (256, 256), interpolation=cv2.INTER_AREA)
 input_data = np.array(image, dtype=np.float32)
