@@ -19,6 +19,7 @@ image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 image = cv2.resize(image, (256, 256), interpolation=cv2.INTER_AREA)
 input_data = np.array(image, dtype=np.float32)
 # input_data = (input_data - 127.5) / 127.5  # Normalize to [-1, 1]
+print(input_data)
 input_data = np.expand_dims(input_data, axis=0)
 
 # Run inference.
